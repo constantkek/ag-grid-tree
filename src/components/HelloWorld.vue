@@ -1,20 +1,120 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-  </div>
+    <div class="hello">
+        <div style="width: 100%; flex: 1 1 auto">
+            <ag-grid-vue
+                style="height: 90vh"
+                treeData
+                class="ag-theme-alpine"
+                :defaultColDef="defaultColDef"
+                :autoGroupColumnDef="autoGroupColumnDef"
+                :columnDef="columnDef"
+                :groupDefaultExpanded="-1"
+                :rowData="rowData"
+                :getDataPath="getDataPath"
+            />
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
+import { AgGridVue } from 'ag-grid-vue';
+import { treeData } from '@/mocks/tree';
+
+import 'ag-grid-community/styles//ag-grid.css';
+import 'ag-grid-enterprise';
+import { TreeElement } from '@/types/tree';
+import TreeElementIconComponent from './TreeElementIconComponent.vue';
 
 export default Vue.extend({
-  name: "HelloWorld",
-  props: {
-    msg: String,
-  },
+    name: 'HelloWorld',
+    components: {
+        AgGridVue,
+        // eslint-disable-next-line vue/no-unused-components
+        TreeElementIconComponent,
+    },
+    data() {
+        return {
+            defaultColDef: {
+                flex: 1,
+            },
+            autoGroupColumnDef: {
+                headerName: 'HeaderName',
+                field: 'type',
+                editable: false,
+                cellRenderer: 'agGroupCellRenderer',
+                // cellRendererSelector: (params: any) => {
+                //     return {
+                //         component: 'TreeElementIconComponent',
+                //         params,
+                //     };
+                // },
+                cellRendererParams: (params: any) => {
+                    return {
+                        innerRenderer: ({
+                            value,
+                        }: {
+                            value: { type: string };
+                        }) =>
+                            `<a href="https://www.ag-grid.com/javascript-grid-tree-data/" target="_blank">${value.type}</a>`,
+                        // innerRendererFramework: TreeElementIconComponent,
+                        // innerRendererParams: { data: params.data },
+                    };
+                },
+                valueGetter: (params: any) => {
+                    return { ...params.data };
+                },
+                // innerRenderer: function (params: any, etc: any) {
+                //     console.log(params);
+                //     console.log(etc);
+                //     return '<i class="icon-showcase"></i>' + params.value;
+                // },
+                // cellRenderer: function (params: any, etc: any) {
+                //     console.log(params);
+                //     console.log(etc);
+                //     return '<i class="icon-showcase"></i>' + params.value;
+                // },
+            },
+            rowData: treeData.items,
+            columnDefs: [
+                // {
+                //     // showRowGroup: true,
+                //     // cellRenderer: 'agGroupCellRenderer',
+                //     // cellRendererParams: {
+                //     //     innerRenderer: 'TreeElementIconComponent',
+                //     // },
+                //     headerName: 'HeaderName',
+                //     // field: 'type',
+                //     editable: false,
+                //     cellRenderer: 'group',
+                //     cellRendererParams: {
+                //         innerRendererFramework: TreeElementIconComponent,
+                //     },
+                // },
+            ],
+            getDataPath: (data: TreeElement) => {
+                return data.hierarchy;
+            },
+        };
+    },
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="less">
+<style lang="less">
+.hello {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.icon {
+    &-showcase {
+        background: transparent
+            url('https://www.ag-grid.com/example-assets/svg-icons/arrows.svg')
+            center/contain no-repeat;
+        color: transparent;
+        &::before {
+            content: '/f119';
+        }
+    }
+}
 </style>

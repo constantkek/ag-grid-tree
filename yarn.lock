@@ -11,11 +11,6 @@
     event-pubsub "4.3.0"
     js-message "1.0.7"
 
-"@ag-grid-community/vue@^29.2.0":
-  version "29.2.0"
-  resolved "https://registry.yarnpkg.com/@ag-grid-community/vue/-/vue-29.2.0.tgz#4eecf990901f8b6ec3068d67ba714d0408fa6807"
-  integrity sha512-tNXcmuluFt3CaSTyZojmhGUTB2hjPVnmmBRU6Tm3ws6txRR+I6WsI/kZ+yCFXQBcUPOAfoa3QNqtg0tO/7DkNg==
-
 "@ampproject/remapping@^2.2.0":
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/@ampproject/remapping/-/remapping-2.2.0.tgz#56c133824780de3174aed5ab6834f3026790154d"
@@ -2307,6 +2302,21 @@ address@^1.1.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/address/-/address-1.2.2.tgz#2b5248dac5485a6390532c6a517fda2e3faac89e"
   integrity sha512-4B/qKCfeE/ODUaAUpSwfzazo5x29WD4r3vXiWsB7I2mSDAihwEqKO+g8GELZUQSSAo5e1XTYh3ZVfLyxBc12nA==
+
+ag-grid-community@29.2.0:
+  version "29.2.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-community/-/ag-grid-community-29.2.0.tgz#ce29357464f50bbafa00aaa2adbd8b275310f44d"
+  integrity sha512-1xP1fpM8gXp2ALzBLONejZNul9hA3//ddszSlhq79QZ1FskQ1Z7E2WvvFeCeLJTJZrfhQkT1q1LO5DGfGeiBvg==
+
+ag-grid-enterprise@29.2.0:
+  version "29.2.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-enterprise/-/ag-grid-enterprise-29.2.0.tgz#32130d8e96dcceaa69ebc4e92774f2ff722cb927"
+  integrity sha512-LYwX6Z8O2FBzN2c0N+h9mMX5hQQMpBzZ+ztmTiboxIVE6DB1MrpfVy0A8YfR31JtzLaj/lRjCqsx6BcnbvkSmA==
+
+ag-grid-vue@29.2.0:
+  version "29.2.0"
+  resolved "https://registry.yarnpkg.com/ag-grid-vue/-/ag-grid-vue-29.2.0.tgz#3e8934cd53734f7b28854be1dc43881ef5ea7329"
+  integrity sha512-jY6DX5C5oHh3J+fiWx6iv1/ngFRxpmZgzMRMTtILj/1klTOXFzoAK1ttKZweYf93LBRV5GoYPeCeIxja5KDraA==
 
 agent-base@6:
   version "6.0.2"
@@ -7742,6 +7752,11 @@ vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg==
 
+vue-class-component@^7.2.6:
+  version "7.2.6"
+  resolved "https://registry.yarnpkg.com/vue-class-component/-/vue-class-component-7.2.6.tgz#8471e037b8e4762f5a464686e19e5afc708502e4"
+  integrity sha512-+eaQXVrAm/LldalI272PpDe3+i4mPis0ORiMYxF6Ae4hyuCh15W8Idet7wPUEs4N4YptgFHGys4UrgNQOMyO6w==
+
 vue-eslint-parser@^8.0.0, vue-eslint-parser@^8.0.1:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/vue-eslint-parser/-/vue-eslint-parser-8.3.0.tgz#5d31129a1b3dd89c0069ca0a1c88f970c360bd0d"
@@ -7768,6 +7783,11 @@ vue-loader@^17.0.0:
     chalk "^4.1.0"
     hash-sum "^2.0.0"
     loader-utils "^2.0.0"
+
+vue-property-decorator@^9.1.2:
+  version "9.1.2"
+  resolved "https://registry.yarnpkg.com/vue-property-decorator/-/vue-property-decorator-9.1.2.tgz#266a2eac61ba6527e2e68a6933cfb98fddab5457"
+  integrity sha512-xYA8MkZynPBGd/w5QFJ2d/NM0z/YeegMqYTphy7NJQXbZcuU6FC6AOdUAcy4SXP+YnkerC6AfH+ldg7PDk9ESQ==
 
 vue-router@^3.5.1:
   version "3.6.5"

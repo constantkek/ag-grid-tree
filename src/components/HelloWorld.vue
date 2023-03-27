@@ -7,7 +7,6 @@
                 class="ag-theme-alpine"
                 :defaultColDef="defaultColDef"
                 :autoGroupColumnDef="autoGroupColumnDef"
-                :columnDef="columnDef"
                 :groupDefaultExpanded="-1"
                 :rowData="rowData"
                 :getDataPath="getDataPath"
@@ -51,12 +50,8 @@ export default Vue.extend({
                 // },
                 cellRendererParams: (params: any) => {
                     return {
-                        innerRenderer: ({
-                            value,
-                        }: {
-                            value: { type: string };
-                        }) =>
-                            `<a href="https://www.ag-grid.com/javascript-grid-tree-data/" target="_blank">${value.type}</a>`,
+                        innerRenderer: ({ value }: { value: TreeElement }) =>
+                            `<span class="tree-element_inner-block-${value.type}">${value.title}</span>`,
                         // innerRendererFramework: TreeElementIconComponent,
                         // innerRendererParams: { data: params.data },
                     };
@@ -76,22 +71,22 @@ export default Vue.extend({
                 // },
             },
             rowData: treeData.items,
-            columnDefs: [
-                // {
-                //     // showRowGroup: true,
-                //     // cellRenderer: 'agGroupCellRenderer',
-                //     // cellRendererParams: {
-                //     //     innerRenderer: 'TreeElementIconComponent',
-                //     // },
-                //     headerName: 'HeaderName',
-                //     // field: 'type',
-                //     editable: false,
-                //     cellRenderer: 'group',
-                //     cellRendererParams: {
-                //         innerRendererFramework: TreeElementIconComponent,
-                //     },
-                // },
-            ],
+            // columnDefs: [
+            //     // {
+            //     //     // showRowGroup: true,
+            //     //     // cellRenderer: 'agGroupCellRenderer',
+            //     //     // cellRendererParams: {
+            //     //     //     innerRenderer: 'TreeElementIconComponent',
+            //     //     // },
+            //     //     headerName: 'HeaderName',
+            //     //     // field: 'type',
+            //     //     editable: false,
+            //     //     cellRenderer: 'group',
+            //     //     cellRendererParams: {
+            //     //         innerRendererFramework: TreeElementIconComponent,
+            //     //     },
+            //     // },
+            // ],
             getDataPath: (data: TreeElement) => {
                 return data.hierarchy;
             },
@@ -114,6 +109,19 @@ export default Vue.extend({
         color: transparent;
         &::before {
             content: '/f119';
+        }
+    }
+}
+.tree-element {
+    &_inner-block {
+        &-showcase {
+            &::before {
+                color: transparent;
+                content: '/f119';
+                background: transparent
+                    url('https://www.ag-grid.com/example-assets/svg-icons/arrows.svg')
+                    center/contain no-repeat;
+            }
         }
     }
 }

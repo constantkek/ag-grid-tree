@@ -119,7 +119,25 @@ export default Vue.extend({
                 color: transparent;
                 content: '/f119';
                 background: transparent
-                    url('https://www.ag-grid.com/example-assets/svg-icons/arrows.svg')
+                    url('https://www.ag-grid.com/example-assets/svg-icons/eye.svg')
+                    center/contain no-repeat;
+            }
+        }
+        &-group {
+            &::before {
+                color: transparent;
+                content: '/f119';
+                background: transparent
+                    url('https://www.ag-grid.com/example-assets/svg-icons/menu.svg')
+                    center/contain no-repeat;
+            }
+        }
+        &-dataheap {
+            &::before {
+                color: transparent;
+                content: '/f119';
+                background: transparent
+                    url('https://www.ag-grid.com/example-assets/svg-icons/aggregation.svg')
                     center/contain no-repeat;
             }
         }

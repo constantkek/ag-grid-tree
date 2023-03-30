@@ -1,18 +1,16 @@
 <template>
     <div class="hello">
-        <div style="width: 100%; flex: 1 1 auto">
-            <ag-grid-vue
-                style="height: 90vh"
-                treeData
-                class="ag-theme-alpine"
-                :defaultColDef="defaultColDef"
-                :autoGroupColumnDef="autoGroupColumnDef"
-                :groupDefaultExpanded="-1"
-                :rowData="rowData"
-                :getDataPath="getDataPath"
-                @cell-clicked="onCellClicked"
-            />
-        </div>
+        <ag-grid-vue
+            style="height: 90vh"
+            class="ag-theme-balham ag-theme-custom"
+            treeData
+            :defaultColDef="defaultColDef"
+            :autoGroupColumnDef="autoGroupColumnDef"
+            :groupDefaultExpanded="-1"
+            :rowData="rowData"
+            :getDataPath="getDataPath"
+            @cell-clicked="onCellClicked"
+        />
     </div>
 </template>
 
@@ -22,6 +20,7 @@ import { AgGridVue } from 'ag-grid-vue';
 import { treeData } from '@/mocks/tree';
 
 import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-balham.css';
 import 'ag-grid-enterprise';
 import { TreeElement } from '@/types/tree';
 
@@ -58,6 +57,7 @@ export default Vue.extend({
             const node = document.querySelector(
                 `.id-${event.data.id}`
             ) as HTMLElement;
+            node.style.color = '#fff';
             node.style.backgroundColor = 'gray'; // todo improve
         },
     },
@@ -72,7 +72,7 @@ export default Vue.extend({
     height: 100%;
 }
 /deep/ .tree-element_inner-block {
-    padding: 2px;
+    padding: 2px 10px 2px 0;
     border-radius: 3px;
     cursor: pointer;
     &:hover {
@@ -81,7 +81,7 @@ export default Vue.extend({
     &.with-showcase-icon {
         &::before {
             color: transparent;
-            content: '/f119';
+            content: 'icon';
             background: transparent
                 url('https://www.ag-grid.com/example-assets/svg-icons/eye.svg')
                 center/contain no-repeat;
@@ -90,7 +90,7 @@ export default Vue.extend({
     &.with-group-icon {
         &::before {
             color: transparent;
-            content: '/f119';
+            content: 'icon';
             background: transparent
                 url('https://www.ag-grid.com/example-assets/svg-icons/menu.svg')
                 center/contain no-repeat;
@@ -99,7 +99,7 @@ export default Vue.extend({
     &.with-dataheap-icon {
         &::before {
             color: transparent;
-            content: '/f119';
+            content: 'icon';
             background: transparent
                 url('https://www.ag-grid.com/example-assets/svg-icons/aggregation.svg')
                 center/contain no-repeat;
